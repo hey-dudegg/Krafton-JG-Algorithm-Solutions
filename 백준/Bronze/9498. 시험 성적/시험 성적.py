@@ -1,6 +1,6 @@
 score = int(input(""))
 
-if(score >= 0 and score <= 100):
+if(score > -1 and score < 101):
     if score > 89 :
         print("A")
     elif score > 79 :
