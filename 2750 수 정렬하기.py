@@ -1,9 +1,10 @@
-n = int(input())
-arr = []
+# n = int(input())
 
-for _ in range(n):
-    num = int(input())
-    arr.append(num)
+arr = [5,7,8,9,4,1,2,3]
+
+# for _ in range(n):
+#     num = int(input())
+#     arr.append(num)
 
 def quick_sort(arr):
     if len(arr) <= 1:
