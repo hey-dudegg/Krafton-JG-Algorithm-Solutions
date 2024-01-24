@@ -1,5 +1,3 @@
-
-"""
 # 내포 표기 생성으로 리스트 생성
 arr = [int(x) for x in input().split()] # 리스트형, [21, 10, 12, 20, 25, 13, 15, 22]
 
@@ -73,3 +71,5 @@ def merge_sort(arr, step_count=[0]):
 print(f"원본 배열: {arr}")
 result = merge_sort(arr)
 print(f"\n최종 정렬 결과: {result}")
+
+"""

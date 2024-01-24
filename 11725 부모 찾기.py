@@ -10,13 +10,14 @@ for i in range(n - 1):
     graph[b].append(a)
 
 visited = [0] * (n + 1)
-visited[1] = 1
 
-def dfs(now):
-    for nxt in graph[now]:
-        if visited[nxt] == 0:
-            visited[nxt] = now
-            dfs(nxt)
+arr = []
+
+def dfs(s):
+    for i in graph[s]:
+        if visited[i] == 0:
+            visited[i] = s
+            dfs(i)
 
 dfs(1)
 
