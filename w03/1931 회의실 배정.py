@@ -27,5 +27,22 @@ import sys
 
 n = int(sys.stdin.readline())
 
-time = [[0] * 2 for _ in range(n)]
+# 회의의 시작, 끝 시간을 담을 이중 리스트
+meet = [[0] * 2 for _ in range(n)] # 시작과 끝을 담기 위해 리스트 요소당 2개씩 선언
 for i in range(n):
+    s, e = map(int, sys.stdin.readline().split())
+    meet[i][0] = s 
+    meet[i][1] = e
+
+# 요소의 1번째와 0번째를 위치를 바꾼 뒤 내림차순으로 끝나는 시간을 중심으로 정렬한다.
+meet.sort(key = lambda x : (x[1], x[0]))
+cnt = 1
+end = meet[0][1]
+
+# 끝나는 시간과 회의 시간의 시간을 갱신하며 카운트해준다.
+for i in range(1, n): # 회의의 끝나는 시간을 탐색하기
+    if meet[i][0] >= end: # i번째 회의의 시작 시간이 앞의 회의 시간과 같거나 늦는 경우
+        cnt += 1
+        end = meet[i][1]
+
+print(cnt)

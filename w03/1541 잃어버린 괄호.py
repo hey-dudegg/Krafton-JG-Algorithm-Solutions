@@ -11,20 +11,22 @@
 출력
 -35
 '''
-
+# 입력받은 숫자를 '-' 기준으로 나누어 리스트에 담는다.
 numbers = input().split('-')
 num = []
 
+# 위 리스트의 요소들을 '+'를 기준으로 합한 뒤 num 리스트에 담는다.
 for i in numbers:
     sum = 0
-    tmp = i.split('+')
-    for j in tmp:
-        sum += int(j)
+    tmp = i.split('+') # 문자열
+    for j in tmp: 
+        sum += int(j) # 형변환 -> int
     num.append(sum)
 
 n = num[0]
 
-for i in range(1, len(num)):
-    n -= num[i]
+# num의 맨 처음 숫자에 num의 첫 번째 숫자들을 빼준다.
+for i in range(1, len(num)): # 첫 번째 숫자를 제외하고.
+    n -= num[i] # num은 더한 숫자들이라서 빼줘야 한다!
 
 print(n)
