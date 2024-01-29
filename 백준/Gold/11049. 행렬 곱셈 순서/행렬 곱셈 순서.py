@@ -1,14 +1,25 @@
-n = int(input())
+N = int(input())
+mat = []
 
-arr = [list(map(int, input().split())) for _ in range(n)]
-arr = [a for a, _ in arr] + [arr[-1][1]]
-dp = [[0] * n for _ in range(n)]
+for _ in range(N):
+    r, c = map(int, input().split())
+    mat.append((r, c))
 
-for step in range(1,n):
-    for loc in range(n-step):
-        end = loc + step
-        mul = arr[loc] * arr[end+1]
-        minimum =  min(yk + xk + sz * mul for yk, xk, sz in zip(dp[loc][loc:end], dp[end][loc+1:end+1], arr[loc+1:end+1]))
-        dp[loc][end] = dp[end][loc] = minimum
+dp = [[0]*N for _ in range(N)] 
 
-print(dp[0][-1])
+for i in range(N-1):
+    dp[i][i+1] = mat[i][0]*mat[i+1][0]*mat[i+1][1]
+    
+for L in range(2, N):
+    i = 0    
+    j = L    
+    
+    while j < N:
+        dp[i][j] = 2**31
+        for k in range(i, j):
+            dp[i][j] = min(dp[i][j], dp[i][k] + dp[k+1][j] +
+                           mat[i][0]*mat[k][1]*mat[j][1])
+        i += 1
+        j += 1 
+
+print(dp[0][N-1])
