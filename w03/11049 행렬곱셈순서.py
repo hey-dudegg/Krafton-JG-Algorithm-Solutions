@@ -35,10 +35,10 @@ def main():
             dp[s][e] = dp[e][s] = t0
     print(dp[0][N-1])
 
-if __name__ == "__main__":
-    INF = 2**31
-    N = int(input())
-    f = lambda: tuple(map(int, input().split()))
-    num = [*f()] + [f()[1] for _ in range(N-1)]
-    dp = [[0]*N for _ in range(N)]
-    main()
+
+INF = 2**31
+N = int(input())
+f = lambda: tuple(map(int, input().split()))
+num = [*f()] + [f()[1] for _ in range(N-1)]
+dp = [[0]*N for _ in range(N)]
+main()
